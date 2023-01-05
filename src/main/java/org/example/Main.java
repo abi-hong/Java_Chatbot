@@ -72,8 +72,10 @@ public class Main {
         JFastText.ProbLabel probLabel = jft.predictProba(text);
         System.out.printf("\nThe label of '%s' is '%s' with probability %f\n",
                 text, probLabel.label, Math.exp(probLabel.logProb));
-        //System.out.println("probLabel stirng: " + probLabel.toString());
-        //System.out.println("getLabels: " + jft.getVector("배달"));
+        System.out.println();
+        System.out.println("라벨 예측 순서는 " + jft.predict(text, 2).get(0) + ", " + jft.predict(text, 2).get(1) + "입니다.");
+
+        /*
         System.out.println("getLabel: " + jft.getLabels());
         System.out.println("getNLabels: " + jft.getNLabels());
         System.out.println("getWordNgrams: " + jft.getWordNgrams());
@@ -81,8 +83,8 @@ public class Main {
         System.out.println("getModelName: " + jft.getModelName());
         System.out.println("getMaxn: " + jft.getMaxn());
         System.out.println("getMinn: " + jft.getMinn());
-        System.out.println("predict: " + jft.predict(text, 2));
         System.out.println("predictProba: " + jft.predictProba(text, 2));
+        */
 
     }
 }
