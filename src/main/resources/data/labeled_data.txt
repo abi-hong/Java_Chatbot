@@ -1,6 +1,35 @@
-__label__soccer Soccer is a game played by two teams of eleven players .
-__label__soccer The Premier League is an English professional league for men's association soccer clubs .
-__label__football Football is the most popular game in the US .
-__label__football A football game usually takes 3 hours and 12 minutes .
-__label__soccer Do you like soccer ?
-__label__football Is football your favorite games ?
+ __label__주문 주문 가능한가요 ?
+ __label__주문 주문할래
+ __label__주문 주문하고싶어요 .
+ __label__주문 주문 하고 싶어요
+ __label__주문 주문가능 ?
+ __label__주문 주문 가능 ?
+ __label__주문 배달할래
+ __label__주문 배달 가능 한가요 ?
+ __label__주문 배달
+ __label__주문 주문
+ __label__주문 주문이요 !
+ __label__주문 주문하겠습니다 .
+ __label__주문 주문부탁드립니다 .
+ __label__주문 주문 부탁해
+ __label__주문 피자 주문 부탁해
+ __label__주문 주문 할 수 있을까요 ?
+ __label__주문 주문 할 수 있어 ?
+ __label__주문 ㅈㅁ
+ __label__주문 주문하고 싶어 피자
+ __label__주문 피자 주문 해도 돼 ?
+ __label__주문 피자 시켜줘
+ __label__주문 피자 시켜
+ __label__주문 피자 시켜줄래 ?
+ __label__주문 피자좀 ..
+ __label__주문 피자 가져와
+ __label__주문 피자 내놔
+__label__가격 얼마예요 ? 
+__label__가격 얼마 ?
+__label__가격 가격은 ?
+__label__가격 가격 알려주세요
+__label__가격 얼마나 냅니까 ?
+__label__가격 가격 알려줘
+__label__가격 가격 말해줘
+__label__가격 얼만데 ?
+__label__가격 얼마인데 ?

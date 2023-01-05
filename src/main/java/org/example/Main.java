@@ -43,26 +43,46 @@ public class Main {
             System.out.println();
         }
 
-
         // JFastText 자연어 처리
         JFastText jft = new JFastText();
+
+
+        // Word embedding learning
+        jft.runCmd(new String[] {
+                "skipgram",
+                "-input", "C:/Users/PERSONA SYSTEM/Desktop/HEESOO/Chatbot/src/main/resources/data/unlabeled_data.txt",
+                "-output", "C:/Users/PERSONA SYSTEM/Desktop/HEESOO/Chatbot/src/main/resources/models/skipgram.model",
+                "-bucket", "100",
+                "-minCount", "1"
+        });
 
         // Train supervised model
         jft.runCmd(new String[] {
                 "supervised",
-                "-input", "src/chatbot_training_data.txt",
-                "-output", "src/main/resources/models/lid.176.bin"
+                "-input", "C:/Users/PERSONA SYSTEM/Desktop/HEESOO/Chatbot/src/main/resources/data/labeled_data.txt",
+                "-output", "C:/Users/PERSONA SYSTEM/Desktop/HEESOO/Chatbot/src/main/resources/models/supervised.model"
         });
 
 
         // Load model from file
-        jft.loadModel("src/main/resources/models/lid.176.bin");
+        jft.loadModel("C:/Users/PERSONA SYSTEM/Desktop/HEESOO/Chatbot/src/main/resources/models/supervised.model.bin");
 
         // Do label prediction
-        String text = "배달 가능 한가요 ?";
+        String text = "가격은 ?";
         JFastText.ProbLabel probLabel = jft.predictProba(text);
         System.out.printf("\nThe label of '%s' is '%s' with probability %f\n",
                 text, probLabel.label, Math.exp(probLabel.logProb));
-        System.out.println("probLabel stirng: " + probLabel.toString());
+        //System.out.println("probLabel stirng: " + probLabel.toString());
+        //System.out.println("getLabels: " + jft.getVector("배달"));
+        System.out.println("getLabel: " + jft.getLabels());
+        System.out.println("getNLabels: " + jft.getNLabels());
+        System.out.println("getWordNgrams: " + jft.getWordNgrams());
+        System.out.println("getWords: " + jft.getWords());
+        System.out.println("getModelName: " + jft.getModelName());
+        System.out.println("getMaxn: " + jft.getMaxn());
+        System.out.println("getMinn: " + jft.getMinn());
+        System.out.println("predict: " + jft.predict(text, 2));
+        System.out.println("predictProba: " + jft.predictProba(text, 2));
+
     }
 }
