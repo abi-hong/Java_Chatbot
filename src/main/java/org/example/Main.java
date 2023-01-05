@@ -4,10 +4,13 @@ import kr.co.shineware.nlp.komoran.constant.DEFAULT_MODEL;
 import kr.co.shineware.nlp.komoran.core.Komoran;
 import kr.co.shineware.nlp.komoran.model.KomoranResult;
 
+import com.github.jfasttext.JFastText;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args)throws IOException {
@@ -39,5 +42,27 @@ public class Main {
             System.out.println(analyzeResultList.getNouns());
             System.out.println();
         }
+
+
+        // JFastText 자연어 처리
+        JFastText jft = new JFastText();
+
+        // Train supervised model
+        jft.runCmd(new String[] {
+                "supervised",
+                "-input", "src/chatbot_training_data.txt",
+                "-output", "src/main/resources/models/lid.176.bin"
+        });
+
+
+        // Load model from file
+        jft.loadModel("src/main/resources/models/lid.176.bin");
+
+        // Do label prediction
+        String text = "배달 가능 한가요 ?";
+        JFastText.ProbLabel probLabel = jft.predictProba(text);
+        System.out.printf("\nThe label of '%s' is '%s' with probability %f\n",
+                text, probLabel.label, Math.exp(probLabel.logProb));
+        System.out.println("probLabel stirng: " + probLabel.toString());
     }
 }
